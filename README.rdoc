@@ -1,0 +1,19 @@
+= Ruby APP
+
+This Ruby test project for Wiley.
+
+
+== Install / Setup
+
+```
+bundle install
+```
+
+
+
+== Example usage
+
+```
+~> ruby main.rb
+```
+
