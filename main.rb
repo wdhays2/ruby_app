@@ -18,7 +18,7 @@ while !done do
     menu.choice(:stock) do
       ticker = ask('Ticker?')
       stock = StocksController.load_ticker(ticker)
-      display_stock(stock)
+      display_stock_info(stock)
     end
 
     menu.choice(:github) do
