@@ -5,15 +5,13 @@ This Ruby test project for Wiley.
 
 == Install / Setup
 
-```
-bundle install
-```
+    bundle install
+
 
 
 
 == Example usage
 
-```
-~> ruby main.rb
-```
+    ~> ruby main.rb
+
 
