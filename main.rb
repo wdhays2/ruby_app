@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'csv'
-require 'uri'
 require 'open-uri'
 require 'highline/import'
+require 'rest_client'
 require 'pry'
 
 # Include files in folders
@@ -14,11 +14,19 @@ done = false
 while !done do
   choose do |menu|
     menu.prompt = 'Choose option:'
+
     menu.choice(:stock) do
       ticker = ask('Ticker?')
       stock = StocksController.load_ticker(ticker)
       display_stock(stock)
     end
+
+    menu.choice(:github) do
+      username = ask('GitHub username?')
+      github = GitHubUsersController.load_github_user_info(username)
+      display_github_info(github)
+    end
+
     menu.choices(:quit) { done = true }
   end
 end

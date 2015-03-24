@@ -8,3 +8,7 @@ def display_stock(stock)
     "  -- Volumn: #{stock.volumn}",
     "  -- Net Change: #{stock.volumn}\n"].join("\n")
 end
+
+def display_github_info(github)
+  puts github.to_s
+end
