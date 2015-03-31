@@ -3,7 +3,8 @@ require 'csv'
 require 'open-uri'
 require 'highline/import'
 require 'rest_client'
-require 'pry'
+require 'json'
+#require 'pry'
 
 # Include files in folders
 Dir[File.dirname(__FILE__) + '/models/*.rb'].each { |f| require(f) }
@@ -23,8 +24,13 @@ while !done do
 
     menu.choice(:github) do
       username = ask('GitHub username?')
+      what_to_look_at = ask("Display: 1) Repos, 2) Followers, 3) Following")
       github = GitHubUsersController.load_github_user_info(username)
-      display_github_info(github)
+      case what_to_look_at.to_i
+      when 1 then display_github_repos(github)
+      when 2 then display_github_followers(github)
+      when 3 then display_github_following(github)
+      end
     end
 
     menu.choices(:quit) { done = true }

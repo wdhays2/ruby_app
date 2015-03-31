@@ -9,6 +9,14 @@ def display_stock_info(stock)
     "  -- Net Change: #{stock.net_change}\n"].join("\n")
 end
 
-def display_github_info(github)
-  puts github.to_s
+def display_github_repos(github)
+  puts "#{github.username}, has the following repos: #{github.get_repo_list}"
+end
+
+def display_github_followers(github)
+  puts "#{github.username}, has the following followers: #{github.get_followers}"
+end
+
+def display_github_following(github)
+  puts "#{github.username}, is following the following users: #{github.get_following}"
 end
