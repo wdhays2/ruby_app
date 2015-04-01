@@ -25,6 +25,21 @@ class GitHub
     following.collect { |r| r[:login] }.sort
   end
 
+  def get_user_info
+    url = "https://api.github.com/users/#{@username}"
+    json_string = RestClient.get(url)
+    user_info = JSON.parse(json_string, symbolize_names: true)
+    {
+    name: user_info[:name], 
+    company: user_info[:company],
+    blog: user_info[:blog],
+    location: user_info[:location],
+    email: user_info[:email],
+    hireable: user_info[:hireable],
+    bio: user_info[:bio]
+    }
+  end
+
   def to_s
     @username
   end

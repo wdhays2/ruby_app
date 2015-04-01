@@ -10,13 +10,32 @@ def display_stock_info(stock)
 end
 
 def display_github_repos(github)
-  puts "#{github.username}, has the following repos: #{github.get_repo_list}"
+  puts "\n#{github.username}, has the following repos:\n#{format_array(github.get_repo_list)}"
 end
 
 def display_github_followers(github)
-  puts "#{github.username}, has the following followers: #{github.get_followers}"
+  puts "\n#{github.username}, has the following followers:\n#{format_array(github.get_followers)}"
 end
 
 def display_github_following(github)
-  puts "#{github.username}, is following the following users: #{github.get_following}"
+  puts "\n#{github.username}, is following the following users:\n#{format_array(github.get_following)}"
+end
+
+def display_user_info(github)
+  puts "\n#{format_hash(github.get_user_info)}"
+end
+
+def format_hash(user)
+  puts [
+  "  -- #{user[:name]}",
+  "  -- #{user[:company]}",
+  "  -- #{user[:blog]}",
+  "  -- #{user[:location]}",
+  "  -- #{user[:email]}",
+  "  -- Hireable: #{user[:hireable] ? 'YES' : 'NO' }",
+  "  -- Bio: #{user[:bio] || 'NOT SET'}"].join("\n")
+end
+
+def format_array(arr)
+  arr.collect { |i| "  -- #{i}" }.sort_by{ |a| a.downcase }.join("\n")
 end
