@@ -25,6 +25,10 @@ def display_user_info(github)
   puts "\n#{format_hash(github.get_user_info)}"
 end
 
+def display_annual_cost_of_vehicles(cars)
+  cars.sort{|x, y| x.model <=> y.model}.each { |c| puts c.to_s }
+end
+
 def format_hash(user)
   puts [
   "  -- #{user[:name]}",
