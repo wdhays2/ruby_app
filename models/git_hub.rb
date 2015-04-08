@@ -4,6 +4,16 @@ class GitHub
     @username = username
   end
 
+  def valid_username?
+    begin
+      url = "https://api.github.com/users/#{@username}"
+      json_string = RestClient.get(url)
+    rescue
+      return false
+    end
+    return true
+  end
+
   def get_repo_list
     url = "https://api.github.com/users/#{@username}/repos"
     json_string = RestClient.get(url)
