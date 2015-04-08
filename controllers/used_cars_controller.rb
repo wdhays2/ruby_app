@@ -41,10 +41,12 @@ class UsedCarsController < BaseController
         grade_fuel: "mid_grade", years_to_keep: 3})
       ]
   end
-
-  def save_car
-
-  end 
+                      #needs to be checked -not sure why we need save _car
+                      #doesn't create and update save? 
+                      def save_car(car_id)
+                        car = car
+                        @@cars << car
+                      end 
 
   def create_car(car_info)
     new_id = _generate_new_id
@@ -61,10 +63,11 @@ class UsedCarsController < BaseController
     pos = _find_car_array_index(car_id)
     @@cars.delete_at(pos)
   end
-
-  def search_cars
-
-  end
+                      # needs to be checked
+                      def search_cars(search_word)
+                        @@cars { |car| search_word == car.has_value? }
+                        return @@cars.show_car(car.id)
+                      end
 
   def show_car(car_id)
     pos = _find_car_array_index(car_id)
