@@ -4,6 +4,7 @@ require 'open-uri'
 require 'highline/import'
 require 'rest_client'
 require 'json'
+require 'active_support/all'
 #require 'pry'
 
 # Include files in folders
@@ -12,7 +13,7 @@ Dir[File.dirname(__FILE__) + '/controllers/*.rb'].each { |f| require(f) }
 Dir[File.dirname(__FILE__) + '/views/*.rb'].each { |f| require(f) }
 
 
-
+UsedCarsController.load_cars
 
 last_username = nil
 username = ""
@@ -20,6 +21,12 @@ done = false
 while !done do
   choose do |menu|
     menu.prompt = 'Choose option:'
+
+    menu.choice(:cars) do
+      cars = UsedCarsController.list
+      display_cars(cars)
+    end
+
 
     menu.choice(:stock) do
       ticker = ask('Ticker?')

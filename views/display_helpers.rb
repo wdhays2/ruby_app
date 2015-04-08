@@ -43,3 +43,7 @@ end
 def format_array(arr)
   arr.collect { |i| "  -- #{i}" }.sort_by{ |a| a.downcase }.join("\n")
 end
+
+def display_cars(arr)
+  arr.each { |car| puts car[:model] }
+end

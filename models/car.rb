@@ -52,6 +52,10 @@ class Car
     @years_to_keep = options[:years_to_keep] 
   end
 
+  def to_a
+    [@id, @year, @model, @engine, @sale_price, @mpg_city, 
+    @mpg_hwy, @maint_cost, @rpr_cost, @ins_cost, @grade_fuel, @years_to_keep]
+  end
 
   def to_s
     "#{year} #{model}: #{annual_cost_of_vehicle.round(0)}"
