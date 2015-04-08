@@ -1,0 +1,10 @@
+id,year,model,engine,sale_price,mpg_city,mpg_hwy,maint_cost,rpr_cost,ins_cost,grade_fuel,years_to_keep
+1,2011,Camry,Hybrid,15000,31,35,300,0,600,regular,3
+2,2006,F350,6.0 liter,24000,14,18,1000,1200,600,diesel,10
+3,1993,Wrangler,4.0 liter,6000,16,20,350,2000,600,mid_grade,3
+4,2003,Wrangler,4.0 liter,12000,16,19,500,500,600,mid_grade,3
+5,2010,Fusion,Hybrid,17000,41,36,300,0,600,regular,3
+6,2009,Jetta,2.0 liter,15000,29,40,300,0,600,diesel,3
+7,2011,Mustang,3.7 liter,17000,19,29,350,0,600,premium,3
+8,2001,F150,5.4 liter,11000,17,20,500,500,600,regular,3
+9,1999,Grand Cherokee,4.0 liter,4500,16,21,300,300,600,mid_grade,3
