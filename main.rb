@@ -24,7 +24,7 @@ while !done do
 
     menu.choice(:cars) do
       cars = UsedCarsController.list
-      display_cars(cars)
+      car_menu_options
     end
 
 
@@ -49,13 +49,12 @@ while !done do
 
       github = GitHubUsersController.load_github_user_info(username)
       if github.valid_username?
-        what_to_look_at = ask("Display: 1) Repos, 2) Followers, 3) Following, 4) User Info, 5) Used Cars")        
+        what_to_look_at = ask("Display: 1) Repos, 2) Followers, 3) Following, 4) User Info")        
         case what_to_look_at.to_i
         when 1 then display_github_repos(github)
         when 2 then display_github_followers(github)
         when 3 then display_github_following(github)
         when 4 then display_user_info(github)
-        when 5 then display_annual_cost_of_vehicle(cars)
         end
       else
         puts "Username invalid."
