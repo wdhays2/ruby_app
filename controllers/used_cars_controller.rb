@@ -49,7 +49,7 @@ class UsedCarsController < BaseController
 
   def self.show_car(car_id)
     pos = _find_car_array_index(car_id)
-    return @@cars[pos]
+    return @@cars[pos].to_a
   end
 
   def self._generate_new_id

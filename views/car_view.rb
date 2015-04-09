@@ -72,28 +72,27 @@ def what_to_update(car_id)
         --  11) years_to_keep\n
         --  12) exit")
         case make_change_to.to_i
-        when 1 then year = ("What is the year?")
-            @@cars[car_id].year.to_i = year
-        when 2 then cars[car_id].model = ask("What model is the car?")
-        when 3 then cars[car_id].engine = ask("Which engine does it have?")
-        when 4 then cars[car_id].sale_price.to_i = ask("What is the purchase price?")
-        when 5 then cars[car_id].mpg_city.to_i = ask("How many MPG does it get in the city?")
-        when 6 then cars[car_id].mpg_hwy.to_i = ask("How many MPG does it get on the highway?")
-        when 7 then cars[car_id].maint_cost.to_i = ask("How much will normal maintenance cost per year?")
-        when 8 then cars[car_id].rpr_cost.to_i = ask("What is the estimated repair cost per year?")
-        when 9 then cars[car_id].ins_cost.to_i = ask("How much will insurance cost per year?")
+        when 1 then @@cars[car_id].year.to_i = ("What is the year?")
+        when 2 then @@cars[car_id].model = ask("What model is the car?")
+        when 3 then @@cars[car_id].engine = ask("Which engine does it have?")
+        when 4 then @@cars[car_id].sale_price.to_i = ask("What is the purchase price?")
+        when 5 then @@cars[car_id].mpg_city.to_i = ask("How many MPG does it get in the city?")
+        when 6 then @@cars[car_id].mpg_hwy.to_i = ask("How many MPG does it get on the highway?")
+        when 7 then @@cars[car_id].maint_cost.to_i = ask("How much will normal maintenance cost per year?")
+        when 8 then @@cars[car_id].rpr_cost.to_i = ask("What is the estimated repair cost per year?")
+        when 9 then @@cars[car_id].ins_cost.to_i = ask("How much will insurance cost per year?")
         when 10 then fuel_answer = ask("Does the car take?\n 
             --  1) Regular Unleaded\n
             --  2) Mid-grade\n
             --  3) Premium\n
             --  4) Diesel")
             case fuel_answer.to_i
-            when 1 then cars[car_id].grade_fuel = "regular"
-            when 2 then cars[car_id].grade_fuel = "mid_grade"
-            when 3 then cars[car_id].grade_fuel = "premium"
-            when 4 then cars[car_id].grade_fuel = "diesel"
+            when 1 then @@cars[car_id].grade_fuel = "regular"
+            when 2 then @@cars[car_id].grade_fuel = "mid_grade"
+            when 3 then @@cars[car_id].grade_fuel = "premium"
+            when 4 then @@cars[car_id].grade_fuel = "diesel"
         end
-        when 11 then car[car_id].years_to_keep = ask("How many years do you plan to keep the car?")
+        when 11 then @@car[car_id].years_to_keep = ask("How many years do you plan to keep the car?")
         when 12 then car_menu_options
     end
     more = ask("Do you need to make more changes to this vehicle?\n
@@ -106,11 +105,11 @@ def what_to_update(car_id)
 end
 
 def display_car_list
-    list
+    puts display_cars
 end
 
 def delete_car_from_list(car_id)
-    delete_car(car_id)
+    UsedCarsController.delete_car(car_id)
 end
 
 def search_cars
@@ -120,9 +119,9 @@ def search_cars
 end
 
 def show_all_car_info(car_id)
-    show_car(car_id)
+    puts UsedCarsController.show_car(car_id)
 end
 
 def display_annual_cost
-    display_annual_cost_of_vehicles
+    puts UsedCarsController.display_annual_cost_of_vehicles
 end
