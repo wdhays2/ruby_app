@@ -23,7 +23,6 @@ while !done do
     menu.prompt = 'Choose option:'
 
     menu.choice(:cars) do
-      cars = UsedCarsController.list
       car_menu_options
     end
 

@@ -44,6 +44,21 @@ def format_array(arr)
   arr.collect { |i| "  -- #{i}" }.sort_by{ |a| a.downcase }.join("\n")
 end
 
-def display_cars
-  @@cars.each { |car| puts car[:model] }
+def display_cars(cars)
+  cars.each { |car| puts "--  " + [car[:id], car[:model]].join(' :: ') }
+end
+
+def show_all_car_details(car)
+  puts "  --  Car id: #{car.id}\n
+  --  Year: #{car.year}\n
+  --  Model: #{car.model}\n
+  --  Engine: #{car.engine}\n
+  --  Sale Price: $ #{car.sale_price}\n 
+  --  City MPG: #{car.mpg_city}\n
+  --  Hwy MPG: #{car.mpg_hwy}\n
+  --  Maint. Cost: #{car.maint_cost}\n
+  --  Est. Repair Cost: #{car.rpr_cost}\n
+  --  Insurance Cost #{car.ins_cost}\n
+  --  Grade Fuel: #{car.grade_fuel}\n
+  --  Years to Keep: #{car.years_to_keep}" 
 end

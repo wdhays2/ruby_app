@@ -7,4 +7,4 @@ id,year,model,engine,sale_price,mpg_city,mpg_hwy,maint_cost,rpr_cost,ins_cost,gr
 6,2009,Jetta,2.0 liter,15000,29,40,300,0,600,diesel,3
 7,2011,Mustang,3.7 liter,17000,19,29,350,0,600,premium,3
 8,2001,F150,5.4 liter,11000,17,20,500,500,600,regular,3
-9,1999,Grand Cherokee,4.0 liter,4500,16,21,300,300,600,mid_grade,3
+10,2014,Wrangler Unlimited Rubicon -Lifted -Forever Warranty,3.6 liter,55000,16,20,0,0,600,0,25

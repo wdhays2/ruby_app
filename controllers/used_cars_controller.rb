@@ -49,7 +49,8 @@ class UsedCarsController < BaseController
 
   def self.show_car(car_id)
     pos = _find_car_array_index(car_id)
-    return @@cars[pos].to_a
+    car = @@cars[pos]
+    show_all_car_details(car)
   end
 
   def self._generate_new_id
@@ -59,6 +60,15 @@ class UsedCarsController < BaseController
 
   def self._find_car_array_index(car_id)
     @@cars.find_index { |car| car_id == car.id }
+  end
+
+  def self.annual_cost_of_cars
+    cars = @@cars
+    display_annual_cost_of_vehicles(cars)
+  end
+
+  def self.select_car(car_id)
+    @@cars[_find_car_array_index(car_id)].to_hash
   end
 
 end

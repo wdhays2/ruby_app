@@ -5,23 +5,23 @@ class Car
   # def initialize(year, model, engine, sale_price, mpg_city, 
   #   mpg_hwy, maint_cost, rpr_cost, ins_cost, grade_fuel, years_to_keep)
   def initialize(options)
-    @id = options[:id]
-    @year = options[:year]
-    @model = options[:model]
-    @engine = options[:engine]
-    @sale_price = options[:sale_price]
-    @mpg_city = options[:mpg_city]
-    @mpg_hwy = options[:mpg_hwy]
-    @maint_cost = options[:maint_cost]
-    @rpr_cost = options[:rpr_cost]
-    @ins_cost = options[:ins_cost]
-    @grade_fuel = options[:grade_fuel]
+    @id = options[:id].to_i
+    @year = options[:year].to_i
+    @model = options[:model].to_s
+    @engine = options[:engine].to_s
+    @sale_price = options[:sale_price].to_i
+    @mpg_city = options[:mpg_city].to_i
+    @mpg_hwy = options[:mpg_hwy].to_i
+    @maint_cost = options[:maint_cost].to_i
+    @rpr_cost = options[:rpr_cost].to_i
+    @ins_cost = options[:ins_cost].to_i
+    @grade_fuel = options[:grade_fuel].to_s
     @regular = 2.79
     @mid_grade = 2.95
     @premium = 3.05
     @diesel = 2.85
     @annual_miles = 12000
-    @years_to_keep = options[:years_to_keep]    
+    @years_to_keep = options[:years_to_keep].to_i
   end
 
   def avg_mpg
@@ -38,18 +38,18 @@ class Car
   end
 
   def update_info(options)
-    @year = options[:year]
-    @model = options[:model]
-    @engine = options[:engine]
-    @sale_price = options[:sale_price]
-    @mpg_city = options[:mpg_city]
-    @mpg_hwy = options[:mpg_hwy]
-    @maint_cost = options[:maint_cost]
-    @rpr_cost = options[:rpr_cost]
-    @ins_cost = options[:ins_cost]
-    @grade_fuel = options[:grade_fuel]
-    @annual_miles = options[:annual_miles]
-    @years_to_keep = options[:years_to_keep] 
+    @year = options[:year].to_i
+    @model = options[:model].to_s
+    @engine = options[:engine].to_s
+    @sale_price = options[:sale_price].to_i
+    @mpg_city = options[:mpg_city].to_i
+    @mpg_hwy = options[:mpg_hwy].to_i
+    @maint_cost = options[:maint_cost].to_i
+    @rpr_cost = options[:rpr_cost].to_i
+    @ins_cost = options[:ins_cost].to_i
+    @grade_fuel = options[:grade_fuel].to_i
+    @annual_miles = options[:annual_miles].to_i
+    @years_to_keep = options[:years_to_keep].to_i
   end
 
   def to_a
@@ -63,7 +63,7 @@ class Car
 
   def to_hash
     {
-      year: @year, model: @model, engine: @engine, sale_price: @sale_price, 
+      id: @id, year: @year, model: @model, engine: @engine, sale_price: @sale_price, 
       mpg_city: @mpg_city, mpg_hwy: @mpg_hwy, maint_cost: @maint_cost, 
       rpr_cost: @rpr_cost, ins_cost: ins_cost, grade_fuel: @grade_fuel, 
       years_to_keep: @years_to_keep
