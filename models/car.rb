@@ -47,7 +47,7 @@ class Car
     @maint_cost = options[:maint_cost].to_i
     @rpr_cost = options[:rpr_cost].to_i
     @ins_cost = options[:ins_cost].to_i
-    @grade_fuel = options[:grade_fuel].to_i
+    @grade_fuel = options[:grade_fuel].to_s
     @annual_miles = options[:annual_miles].to_i
     @years_to_keep = options[:years_to_keep].to_i
   end

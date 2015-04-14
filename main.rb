@@ -23,7 +23,10 @@ while !done do
     menu.prompt = 'Choose option:'
 
     menu.choice(:cars) do
-      car_menu_options
+      cmo_val_done = false
+      while !cmo_val_done do 
+        cmo_val_done = car_menu_options
+      end
     end
 
 
