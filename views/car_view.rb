@@ -55,7 +55,10 @@ def create_new_car
         q.validate = Proc.new { |x| validate_car_mode(x) } 
         q.responses[:not_valid] = 'The car model cannot be blank'
     end
-    new_car[:engine] = ask("Which engine does it have?")
+    new_car[:engine] = ask("Which engine does it have?", String) do |q| 
+        q.validate = Proc.new { |x| validate_car_mode(x) } 
+        q.responses[:not_valid] = 'The car model cannot be blank'
+    end
     new_car[:sale_price] = ask("What is the purchase price?", Integer) { |q| q.in = 100..100000 }
     new_car[:mpg_city] = ask("How many MPG does it get in the city?", Integer) { |q| q.in = 5..150 }
     new_car[:mpg_hwy] = ask("How many MPG does it get on the highway?", Integer) { |q| q.in = 5..150 }
@@ -103,8 +106,14 @@ def what_to_update(car_id)
     case make_change_to.to_i
     when 1 then car[:year] = ask("What is the year? 
         (#{car[:year]})", Integer) { |q| q.in = 1908..(Date.today.year + 1) }
-    when 2 then car[:model] = ask("What model is the car? (#{car[:model]})")
-    when 3 then car[:engine] = ask("Which engine does it have? (#{car[:engine]})")
+    when 2 then car[:model] = ask("What model is the car? (#{car[:model]})", String) do |q| 
+        q.validate = Proc.new { |x| validate_car_mode(x) } 
+        q.responses[:not_valid] = 'The car model cannot be blank'
+    end
+    when 3 then car[:engine] = ask("Which engine does it have? (#{car[:engine]})", String) do |q| 
+        q.validate = Proc.new { |x| validate_car_mode(x) } 
+        q.responses[:not_valid] = 'The car model cannot be blank'
+    end
     when 4 then car[:sale_price] = ask("What is the purchase price? 
         (#{car[:sale_price]})", Integer) { |q| q.in = 100..100000 }
     when 5 then car[:mpg_city] = ask("How many MPG does it get in the city? 
@@ -167,7 +176,10 @@ def display_search_results
         --  9) ins_cost\n
         --  10) grade_fuel\n
         --  11) years_to_keep", Integer) { |q| q.in = 1..11 }    
-    search_word = ask('What search would you like to run?')
+    search_word = ask('What search would you like to run?', String) do |q| 
+        q.validate = Proc.new { |x| validate_car_mode(x) } 
+        q.responses[:not_valid] = 'The car model cannot be blank'
+    end
     UsedCarsController.search_cars(search_word, search_category)
     display_car_list    
 end
