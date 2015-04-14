@@ -51,7 +51,10 @@ end
 def create_new_car
     new_car = {}
     new_car[:year] = ask("What is the year?", Integer) { |q| q.in = 1908..(Date.today.year + 1) }
-    new_car[:model] = ask("What model is the car?", String) { |q| q.in = ("&#44;").text..("&#122;").text }
+    new_car[:model] = ask("What model is the car?", String) do |q| 
+        q.validate = Proc.new { |x| validate_car_mode(x) } 
+        q.responses[:not_valid] = 'The car model cannot be blank'
+    end
     new_car[:engine] = ask("Which engine does it have?")
     new_car[:sale_price] = ask("What is the purchase price?", Integer) { |q| q.in = 100..100000 }
     new_car[:mpg_city] = ask("How many MPG does it get in the city?", Integer) { |q| q.in = 5..150 }
@@ -184,4 +187,8 @@ end
 def clear_search_results
     UsedCarsController.clear_search
     display_car_list
+end
+
+def validate_car_mode(x)
+  x.to_s.strip != '' # cannot be blank or nil
 end
